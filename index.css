@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+body {
+    background-color: rgb(155, 155, 155);
+}
 .contain-all {
     display: grid;
     justify-content: center;
@@ -6,9 +10,10 @@
 .container {
     max-width: 800px;
     max-height: 600px;
+    font-family: 'Chakra Petch', sans-serif;
     display: grid;
     grid-template-columns: 1fr repeat(3, 2fr) 1fr;
-    grid-template-rows: 1fr 2fr repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     border: solid black 2px;
@@ -19,6 +24,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 .reel-one { 
     grid-area: 2 / 2 / 3 / 3; 
@@ -54,42 +60,93 @@
     align-items: center;
     justify-content: center;
 }
-.bet-1 { 
+.bet-10 { 
     grid-area: 4 / 2 / 5 / 3; 
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url(/slot-machine-project/slotPic/mario-coin.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
-.bet-5 { 
+.bet-50 { 
     grid-area: 4 / 3 / 5 / 4; 
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url(/slot-machine-project/slotPic/mario-coin.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
-.bet-10 { 
+.bet-100 { 
     grid-area: 4 / 4 / 5 / 5; 
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url(/slot-machine-project/slotPic/mario-coin.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .add-funds { 
     grid-area: 3 / 5 / 4 / 6; 
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url(/slot-machine-project/slotPic/mario-coin.png);
+    background-size: 140% 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#funds {
+    font-size: 0.9em;
+    line-height: 0.9;
 }
 .status {
     grid-area: 3 / 2 / 4 / 5;
     font-size: larger;
+    line-height: 0.9;
+    text-align: center;
+    opacity: 0.5;
     padding: 10px;
     display: flex;
     justify-content: center;
 }
 img {
     max-width: 90%;
-    max-height: 135px;
+    max-height: 90%;
+    aspect-ratio: 1/1;
 }
-
+button {
+    background-color: inherit;
+    border: none;
+    font-size: 1.5em;
+}
+button:hover {
+    font-weight: bold;
+    cursor: grab;
+}
+button:active {
+    cursor:grabbing;
+}
+@media only screen and (max-width: 500px) {
+    button {
+        font-size: 1em;
+    }
+    #funds {
+        font-size: 0.6em;
+    }
+}
+@media only screen and (max-width: 387px){
+    .add-funds {
+        background-size: 140% 30%;
+    }
+    .container {
+        grid-template-rows: 1fr 1fr 1fr 0.5fr;
+    }
+}
 
 
 .scale-in-ver-bottom {

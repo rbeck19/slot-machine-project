@@ -1,17 +1,18 @@
     // buttons
-const betx1 = document.querySelector("#betx1")
-const betx5 = document.querySelector("#betx5")
 const betx10 = document.querySelector("#betx10")
+const betx50 = document.querySelector("#betx50")
+const betx100 = document.querySelector("#betx100")
 const addFunds = document.querySelector("#funds")
-    //--------
+    // displays
 const balance = document.querySelector(".credits")
 const displayStatus = document.querySelector(".status")
+    // images for reels
 let imageOne = document.querySelector("#image-one")
 let imageTwo = document.querySelector("#image-two")
 let imageThree = document.querySelector("#image-three")
+
 let funds = 0
-
-
+    //array of images
 const images = [
     "/slot-machine-project/slotPic/turtle-shell.png",
     "/slot-machine-project/slotPic/coin.png",
@@ -24,19 +25,19 @@ const images = [
 const slotReels = () => {
         //resets css class to allow for re-animation
         //from Chris Coyler   https://css-tricks.com/restart-css-animation/
-
+      //imageOne animation reset
     imageOne.classList.remove("scale-in-ver-bottom")
     void imageOne.offsetWidth;
     imageOne.classList.add("scale-in-ver-bottom")
-
+      //imageTwo animation reset
     imageTwo.classList.remove("scale-in-ver-bottom")
     void imageOne.offsetWidth;
     imageTwo.classList.add("scale-in-ver-bottom")
-
+      //imageThree animation reset
     imageThree.classList.remove("scale-in-ver-bottom")
     void imageOne.offsetWidth;
     imageThree.classList.add("scale-in-ver-bottom")
-
+    //random image src from array 
     imageOne.src = images[Math.floor(Math.random() * images.length)]
     imageTwo.src = images[Math.floor(Math.random() * images.length)]
     imageThree.src = images[Math.floor(Math.random() * images.length)]
@@ -89,13 +90,13 @@ addFunds.addEventListener("click", () => {
 })
 
     //bet button events
-betx1.addEventListener("click", () =>{
+betx10.addEventListener("click", () =>{
      wager(10)
 })
-betx5.addEventListener("click", () => {
+betx50.addEventListener("click", () => {
     wager(50)
 })
-betx10.addEventListener("click", () => {
+betx100.addEventListener("click", () => {
     wager(100)
 })
 
