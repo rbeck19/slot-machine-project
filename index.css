@@ -18,6 +18,7 @@ body {
     grid-row-gap: 0px;
     border: solid black 2px;
     background-color: rgb(11, 140, 11);
+    border-radius: 20px;
     }
 .title { 
     grid-area: 1 / 2 / 2 / 5; 
@@ -53,7 +54,7 @@ body {
     align-items: center;
     justify-content: center;
 }
-.credits { 
+.balance { 
     grid-area: 3 / 2 / 4 / 5; 
     font-size: x-large;
     display: flex;
@@ -130,6 +131,9 @@ button:hover {
 }
 button:active {
     cursor:grabbing;
+}
+button:disabled {
+    color: black;
 }
 @media only screen and (max-width: 500px) {
     button {

@@ -4,62 +4,103 @@ const betx50 = document.querySelector("#betx50")
 const betx100 = document.querySelector("#betx100")
 const addFunds = document.querySelector("#funds")
     // displays
-const balance = document.querySelector(".credits")
+const balance = document.querySelector(".balance")
 const displayStatus = document.querySelector(".status")
     // images for reels
 let imageOne = document.querySelector("#image-one")
 let imageTwo = document.querySelector("#image-two")
 let imageThree = document.querySelector("#image-three")
-
+    //starting funds/balance
 let funds = 0
     //array of images
 const images = [
     "/slot-machine-project/slotPic/turtle-shell.png",
+    "/slot-machine-project/slotPic/turtle-shell.png",
+    "/slot-machine-project/slotPic/turtle-shell.png",
+    "/slot-machine-project/slotPic/coin.png",
+    "/slot-machine-project/slotPic/coin.png",
     "/slot-machine-project/slotPic/coin.png",
     "/slot-machine-project/slotPic/mushroom.png",
+    "/slot-machine-project/slotPic/mushroom.png",
+    "/slot-machine-project/slotPic/mario.png",
     "/slot-machine-project/slotPic/mario.png",
     "/slot-machine-project/slotPic/star.png"
 ]
-
-    //spin the reels
-const slotReels = () => {
-        //resets css class to allow for re-animation
-        //from Chris Coyler   https://css-tricks.com/restart-css-animation/
-      //imageOne animation reset
-    imageOne.classList.remove("scale-in-ver-bottom")
-    void imageOne.offsetWidth;
-    imageOne.classList.add("scale-in-ver-bottom")
-      //imageTwo animation reset
-    imageTwo.classList.remove("scale-in-ver-bottom")
-    void imageOne.offsetWidth;
-    imageTwo.classList.add("scale-in-ver-bottom")
-      //imageThree animation reset
-    imageThree.classList.remove("scale-in-ver-bottom")
-    void imageOne.offsetWidth;
-    imageThree.classList.add("scale-in-ver-bottom")
-    //random image src from array 
-    imageOne.src = images[Math.floor(Math.random() * images.length)]
-    imageTwo.src = images[Math.floor(Math.random() * images.length)]
-    imageThree.src = images[Math.floor(Math.random() * images.length)]
+  //add funds button 
+addFunds.addEventListener("click", () => {
+    funds += 500
+    showBalance()
+})
+    //bet button events
+betx10.addEventListener("click", () =>{
+     wager(10)
+     buttonDelay()
+})
+betx50.addEventListener("click", () => {
+    wager(50)
+    buttonDelay()
+})
+betx100.addEventListener("click", () => {
+    wager(100)
+    buttonDelay()
+})
+    //disable and reinable buttons after a delay
+const buttonDelay = () => {
+    betx10.disabled = true
+    setTimeout( () => {betx10.disabled = false}, 900 )
+    betx50.disabled = true
+    setTimeout( () => {betx50.disabled = false}, 900 )
+    betx100.disabled = true
+    setTimeout( () => {betx100.disabled = false}, 900 )
 }
-
-    //show balance
-const showBalance = () => {
-    balance.innerHTML = `Balance: ${funds}`
-}
-
     //wager and spin if there are funds
 const wager = (bet) => {
     if ((funds - bet) < 0 ){
         displayStatus.innerHTML = `You Dont Have Enough Funds`
     } else {
         funds -= bet
-        slotReels()
-        matches(bet)
+        //reset status to emtpy
+        displayStatus.innerHTML = ""
+        slotReels()       
         showBalance()
+        setTimeout(() => {matches(bet)},700)
+        // matches(bet)
+        // showBalance()
     }
 }
-
+    //spin the reels
+const slotReels = () => {
+        //hide the images in the reels
+    imageOne.style.visibility = "hidden"
+    imageTwo.style.visibility = "hidden"
+    imageThree.style.visibility = "hidden"
+        //after a delay 
+    setTimeout(() => {
+            //change visibilty
+        imageOne.style.visibility = "visible"
+            //remove reset and add css class to allow re-animation 
+            //from Chris Coyler https://css-tricks.com/restart-css-animation/ 
+        imageOne.classList.remove("scale-in-ver-bottom")
+        void imageOne.offsetWidth;
+        imageOne.classList.add("scale-in-ver-bottom")
+            //random image
+        imageOne.src = images[Math.floor(Math.random() * images.length)]
+    },100)
+    setTimeout(() => {
+        imageTwo.style.visibility = "visible"
+        imageTwo.classList.remove("scale-in-ver-bottom")
+        void imageOne.offsetWidth;
+        imageTwo.classList.add("scale-in-ver-bottom")
+        imageTwo.src = images[Math.floor(Math.random() * images.length)]
+    },200)
+    setTimeout(() => {
+        imageThree.style.visibility = "visible"
+        imageThree.classList.remove("scale-in-ver-bottom")
+        void imageOne.offsetWidth;
+        imageThree.classList.add("scale-in-ver-bottom")
+        imageThree.src = images[Math.floor(Math.random() * images.length)]
+    },300)
+}
     //return values varry based on what images matched
 const matches = (bet) => {
     if (imageOne.src.includes("turtle") && imageTwo.src.includes("turtle") && imageThree.src.includes("turtle")){
@@ -80,23 +121,42 @@ const matches = (bet) => {
     } else {
         displayStatus.innerHTML = `You Lost ${bet}`
     }
+        //TRIAL
+    showBalance()
+}
+    //show balance
+const showBalance = () => {
+    balance.innerHTML = `Balance: ${funds}`
 }
 
-    //add funds button 
-addFunds.addEventListener("click", () => {
-    funds += 100
-    showBalance()
-    console.log(funds)
-})
 
-    //bet button events
-betx10.addEventListener("click", () =>{
-     wager(10)
-})
-betx50.addEventListener("click", () => {
-    wager(50)
-})
-betx100.addEventListener("click", () => {
-    wager(100)
-})
 
+
+
+
+
+
+
+
+
+
+// const slotReels = () => {
+//         //resets css class to allow for re-animation
+//         //from Chris Coyler   https://css-tricks.com/restart-css-animation/    
+//       //imageOne animation reset
+//     imageOne.classList.remove("scale-in-ver-bottom")
+//     void imageOne.offsetWidth;
+//     imageOne.classList.add("scale-in-ver-bottom")
+//       //imageTwo animation reset
+//     imageTwo.classList.remove("scale-in-ver-bottom")
+//     void imageOne.offsetWidth;
+//     imageTwo.classList.add("scale-in-ver-bottom")
+//       //imageThree animation reset
+//     imageThree.classList.remove("scale-in-ver-bottom")
+//     void imageOne.offsetWidth;
+//     imageThree.classList.add("scale-in-ver-bottom")
+//     //random image src from array 
+//     imageOne.src = images[Math.floor(Math.random() * images.length)]
+//     imageTwo.src = images[Math.floor(Math.random() * images.length)]
+//     imageThree.src = images[Math.floor(Math.random() * images.length)]
+// }
