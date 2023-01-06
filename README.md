@@ -2,7 +2,7 @@
 
 In Mario Slot Machine as long as you have funds you can spin the reels to see if you match all three.
 
-![Mario Slot Machine](/slot-machine-project/slotPic/slot-machine-image.png)
+![Mario Slot Machine](/slotPic/slot-machine-image.png)
 
 ## Technology Used
 The following technology was used in order to create Mario Slot Machine:
