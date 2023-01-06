@@ -11,7 +11,7 @@ The following technology was used in order to create Mario Slot Machine:
 - CSS
 
 ## Getting Started
-To play this game live you can click this [link](https://www.example.com)
+To play this game live you can click this [link](https://rbeck19.github.io/slot-machine-project/)
 
 Instructions:
 - Click on the Add Funds button to add 500 to your Balance
