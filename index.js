@@ -26,7 +26,7 @@ const images = [
     "/slot-machine-project/slotPic/mario.png",
     "/slot-machine-project/slotPic/star.png"
 ]
-  //add funds button 
+    //add funds button 
 addFunds.addEventListener("click", () => {
     funds += 500
     showBalance()
@@ -59,13 +59,11 @@ const wager = (bet) => {
         displayStatus.innerHTML = `You Dont Have Enough Funds`
     } else {
         funds -= bet
-        //reset status to emtpy
+            //reset status to emtpy
         displayStatus.innerHTML = ""
         slotReels()       
         showBalance()
-        setTimeout(() => {matches(bet)},700)
-        // matches(bet)
-        // showBalance()
+        setTimeout(() => {matchCheck(bet)},700)
     }
 }
     //spin the reels
@@ -101,8 +99,8 @@ const slotReels = () => {
         imageThree.src = images[Math.floor(Math.random() * images.length)]
     },300)
 }
-    //return values varry based on what images matched
-const matches = (bet) => {
+    //return values vary based on what images matched
+const matchCheck = (bet) => {
     if (imageOne.src.includes("turtle") && imageTwo.src.includes("turtle") && imageThree.src.includes("turtle")){
         funds = funds + (bet * 2)
         displayStatus.innerHTML = `You Won ${bet*2}`
@@ -121,42 +119,10 @@ const matches = (bet) => {
     } else {
         displayStatus.innerHTML = `You Lost ${bet}`
     }
-        //TRIAL
+        //update funds
     showBalance()
 }
     //show balance
 const showBalance = () => {
     balance.innerHTML = `Balance: ${funds}`
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// const slotReels = () => {
-//         //resets css class to allow for re-animation
-//         //from Chris Coyler   https://css-tricks.com/restart-css-animation/    
-//       //imageOne animation reset
-//     imageOne.classList.remove("scale-in-ver-bottom")
-//     void imageOne.offsetWidth;
-//     imageOne.classList.add("scale-in-ver-bottom")
-//       //imageTwo animation reset
-//     imageTwo.classList.remove("scale-in-ver-bottom")
-//     void imageOne.offsetWidth;
-//     imageTwo.classList.add("scale-in-ver-bottom")
-//       //imageThree animation reset
-//     imageThree.classList.remove("scale-in-ver-bottom")
-//     void imageOne.offsetWidth;
-//     imageThree.classList.add("scale-in-ver-bottom")
-//     //random image src from array 
-//     imageOne.src = images[Math.floor(Math.random() * images.length)]
-//     imageTwo.src = images[Math.floor(Math.random() * images.length)]
-//     imageThree.src = images[Math.floor(Math.random() * images.length)]
-// }

@@ -151,8 +151,6 @@ button:disabled {
         grid-template-rows: 1fr 1fr 1fr 0.5fr;
     }
 }
-
-
 .scale-in-ver-bottom {
 	-webkit-animation: scale-in-ver-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: scale-in-ver-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -201,5 +199,3 @@ button:disabled {
       opacity: 1;
     }
   }
-  
-

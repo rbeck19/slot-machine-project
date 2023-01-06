@@ -1,69 +1,36 @@
 # Mario Slot Machine 
 
-## Wireframe:
+In Mario Slot Machine as long as you have funds you can spin the reels to see if you match all three.
 
-![Slot Machine Wireframe](wireframe.png)
+![Mario Slot Machine](/slot-machine-project/slotPic/slot-machine-image.png)
 
-## User Story:
+## Technology Used
+The following technology was used in order to create Mario Slot Machine:
+- JavaScript
+- HTML
+- CSS
 
-### MVP:
-- As a user, I want to see three images.
-    ```
-    reel1 = imageArray[]
-    reel2 = imageArray[]
-    reel3 = imageArray[]
-    ```
-- As a user, I want to press a button to change the images.
-    ```
-    reelButton.addEventListener("click" (event)=>{
-        reel1 = imageArray[random]
-        reel2 = imageArray[random]
-        reel3 = imageArray[random]
-    })
-    ```
-- As a user, I want to see how many credits I have.
-    ```
-    creditTotal = credits
-    ```
-- As a user, I want to win if the three images match.
-    ```
-    match() = 
-        if(reel1 == reel2 && reel2 == reel3){
-            win
-        } else {lose}
-    ```
-- As a user, I want to have my credits increase when I win.
-    ```
-    creditTotal += winCredit
-    ```
-- As a user, I want to have my credits decrease when I use them.
-    ```
-    creditTotal -= loseCredit
-    ```
-- As a user, I want to be able to wager more.
-    ```
-    button-single-bet.addEventListener ("click" (event)=>{ bet = 1}
-    button-5-bet.addEventListener ("click" (event)=>{bet = 5}
-    button-10-bet.addEventListener ("click" (event)=>{bet = 10}
-    ```
-- As a user, I want to be notifed that I won or lost.
-    ```
-    status() = 
-        if (match == "win"){
-            return "You Win"
-        }   else { 
-            return "You Lose"
-        }
-    ```
+## Getting Started
+To play this game live you can click this [link](https://www.example.com)
+
+Instructions:
+- Click on the Add Funds button to add 500 to your Balance
+- Click on one of the three bet buttons with the bet option you want to use
+- If three images match you win
+    - Koopa Shell: 2x the bet value
+    - Coin: 2x the bet value
+    - Mushroom: 5x the bet value
+    - Mario: 10x the bet value
+    - Star: 20x the bet value
+
+## Next Steps:
 
 ### Version 2:
-- As a user, I want some images to have a higher win chance then others.
-- As a user, I want to have image combos to have different value returns.
-- As a user, I want to be able to add more credits.
-
+- As a user, I want to hear a sound effect when I win.
+- As a user, I want to hear a sound effect when I lose.
+- As a user, I want to be able to toggle on and off the sound effects.
 
 ### Version 3:
 - As a user, I want to be have an account.
-- As a user, I want to be able to sign in and out of account.
-- As a user, I want to have my account keep track of my total credits.
-
+- As a user, I want to be able to sign in and out of the account.
+- As a user, I want to have my account keep track of my total wins. 
