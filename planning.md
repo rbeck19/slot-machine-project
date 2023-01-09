@@ -2,7 +2,7 @@
 
 ## Wireframe:
 
-![Slot Machine Wireframe](/slot-machine-project/slotPic/wireframe.png)
+![Slot Machine Wireframe](/slotPic/wireframe.png)
 
 ## User Story:
 
