@@ -167,7 +167,7 @@ button:disabled {
  * animation scale-in-ver-bottom
  * ----------------------------------------
  */
- @-webkit-keyframes scale-in-ver-bottom {
+ @-webkit-keyframes scale-in-ver-bottom {/* indentation in here is all off*/
     0% {
       -webkit-transform: scaleY(0);
               transform: scaleY(0);
