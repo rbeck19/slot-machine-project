@@ -1,5 +1,5 @@
     // buttons
-const betx10 = document.querySelector("#betx10")
+const betx10 = document.querySelector("#betx10") 
 const betx50 = document.querySelector("#betx50")
 const betx100 = document.querySelector("#betx100")
 const addFunds = document.querySelector("#funds")
@@ -7,7 +7,7 @@ const addFunds = document.querySelector("#funds")
 const balance = document.querySelector(".balance")
 const displayStatus = document.querySelector(".status")
     // images for reels
-let imageOne = document.querySelector("#image-one")
+let imageOne = document.querySelector("#image-one") // could these be const?
 let imageTwo = document.querySelector("#image-two")
 let imageThree = document.querySelector("#image-three")
     //starting funds/balance
@@ -32,9 +32,9 @@ addFunds.addEventListener("click", () => {
     showBalance()
 })
     //bet button events
-betx10.addEventListener("click", () =>{
-     wager(10)
-     buttonDelay()
+betx10.addEventListener("click", () =>{ // would like to see a refactor for this callBack being repeated 3 times to instead take in a param of event to set the wager amount based on teh button attributes 
+     wager(10)// indentation is off in here by an extra space
+     buttonDelay() // ^
 })
 betx50.addEventListener("click", () => {
     wager(50)
@@ -44,7 +44,7 @@ betx100.addEventListener("click", () => {
     wager(100)
     buttonDelay()
 })
-    //disable and reinable buttons after a delay
+    //disable and reenable buttons after a delay
 const buttonDelay = () => {
     betx10.disabled = true
     setTimeout( () => {betx10.disabled = false}, 900 )
@@ -73,18 +73,18 @@ const slotReels = () => {
     imageTwo.style.visibility = "hidden"
     imageThree.style.visibility = "hidden"
         //after a delay 
-    setTimeout(() => {
+    setTimeout(() => { // i wonder if setInterval would have been more in line with what you wanted
             //change visibilty
         imageOne.style.visibility = "visible"
             //remove reset and add css class to allow re-animation 
             //from Chris Coyler https://css-tricks.com/restart-css-animation/ 
         imageOne.classList.remove("scale-in-ver-bottom")
-        void imageOne.offsetWidth;
+        void imageOne.offsetWidth; // inconsistent use of ;, interesting choice to use void here, is it necessary ? do we need to evaluate the kvp before setting it to undefined ? 
         imageOne.classList.add("scale-in-ver-bottom")
             //random image
         imageOne.src = images[Math.floor(Math.random() * images.length)]
     },100)
-    setTimeout(() => {
+    setTimeout(() => {// repeated code can be refactored into functions with parameters to handle to variability / increase use cases
         imageTwo.style.visibility = "visible"
         imageTwo.classList.remove("scale-in-ver-bottom")
         void imageOne.offsetWidth;
@@ -101,7 +101,7 @@ const slotReels = () => {
 }
     //return values vary based on what images matched
 const matchCheck = (bet) => {
-    if (imageOne.src.includes("turtle") && imageTwo.src.includes("turtle") && imageThree.src.includes("turtle")){
+    if (imageOne.src.includes("turtle") && imageTwo.src.includes("turtle") && imageThree.src.includes("turtle")){// def refactor this, interesting use of includes instead of  a === b && a === c ( therefore a == c via chain rule)
         funds = funds + (bet * 2)
         displayStatus.innerHTML = `You Won ${bet*2}`
     } else if (imageOne.src.includes("coin") && imageTwo.src.includes("coin") && imageThree.src.includes("coin")){
